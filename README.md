@@ -8,8 +8,8 @@ Retrieval Augmented Generation (RAG) is a method to augment the relevance and tr
 
 ## Stack Used 
 
-- AssemblyAI: https://www.assemblyai.com/
-- LangChain: https://www.langchain.com/
-- Hugging Face: https://huggingface.co/
-- Chroma: https://www.trychroma.com/
-- OpenAI: https://openai.com/
+- AssemblyAI
+- LangChain
+- Hugging Face
+- Chroma
+- OpenAI
