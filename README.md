@@ -13,3 +13,5 @@ Retrieval Augmented Generation (RAG) is a method to augment the relevance and tr
 - Hugging Face
 - Chroma
 - OpenAI
+
+## How to use this Application
