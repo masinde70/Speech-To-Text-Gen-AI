@@ -15,3 +15,7 @@ Retrieval Augmented Generation (RAG) is a method to augment the relevance and tr
 - OpenAI
 
 ## How to use this Application
+- pip install the requirements
+- Put your API keys in dotenv so that you can hide your keys before exposing them to the public
+- run main.py to the terminal then start asking the question
+for example "What is RAG?"
