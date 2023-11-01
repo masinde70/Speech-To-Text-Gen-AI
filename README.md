@@ -1,5 +1,5 @@
 # Speech-To-Text-Gen-AI
-Retrieval Augmented Generation on audio data with LangChain and Chroma database 
+Retrieval Augmented Generation on audio data with LangChain and Chroma database. 
 Retrieval Augmented Generation (RAG) allows you to add relevant documents as context when querying LLMs.
 
 RAG on audio data using LangChain and Chroma 
@@ -11,7 +11,8 @@ Retrieval Augmented Generation (RAG) is a method to augment the relevance and tr
 - AssemblyAI
 - LangChain
 - Hugging Face
-- Chroma
+- **Chroma** 
+    - Chroma is the open-source embedding database. Chroma makes it easy to build LLM apps by making knowledge, facts, and skills pluggable for LLMs
 - OpenAI
 
 ## How to use this Application
