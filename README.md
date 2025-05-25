@@ -1,9 +1,11 @@
 
+---
+
 # Speech-To-Text-Gen-AI
 
 A **Retrieval Augmented Generation (RAG)** system for audio data, powered by LangChain, Chroma, Hugging Face embeddings, AssemblyAI, and OpenAI's GPT models.
 
-This project demonstrates how to transcribe audio files, embed their contents, and enable powerful question-answering over the audio using modern LLMs.
+This project demonstrates how to transcribe audio files, embed their contents, and enable powerful question answering over audio using modern LLMs.
 
 ---
 
@@ -11,21 +13,21 @@ This project demonstrates how to transcribe audio files, embed their contents, a
 
 - **Automatic Transcription:** Downloads and transcribes audio from URLs using AssemblyAI.
 - **Document Chunking:** Splits transcripts into manageable text chunks for efficient embedding and retrieval.
-- **Embeddings:** Uses Hugging Face's `sentence-transformers/all-mpnet-base-v2` for high-quality text embeddings.
+- **High-Quality Embeddings:** Uses Hugging Face's `sentence-transformers/all-mpnet-base-v2` for state-of-the-art text embeddings.
 - **Vector Storage:** Stores embeddings in a Chroma vector database for fast similarity search.
-- **Conversational QA:** Integrates OpenAI's GPT-3.5-turbo via LangChain for answering questions about the audio content, with source attribution.
+- **Conversational QA:** Integrates OpenAI's GPT-3.5-turbo via LangChain for question answering about audio content, with source attribution.
 - **Interactive CLI:** Simple terminal interface for asking natural language questions about your audio files.
 
 ---
 
 ## Tech Stack
 
-- [AssemblyAI](https://www.assemblyai.com/) - Speech-to-text transcription.
-- [LangChain](https://python.langchain.com/) - LLM orchestration and chaining.
-- [Hugging Face Transformers](https://huggingface.co/) - Embedding models.
-- [Chroma](https://www.trychroma.com/) - Open-source vector database.
-- [OpenAI GPT-3.5](https://platform.openai.com/docs/models/gpt-3-5) - Large language model for answering questions.
-- [python-dotenv](https://pypi.org/project/python-dotenv/) - Secure API key management.
+- [AssemblyAI](https://www.assemblyai.com/) - Speech-to-text transcription
+- [LangChain](https://python.langchain.com/) - LLM orchestration and chaining
+- [Hugging Face Transformers](https://huggingface.co/) - Embedding models
+- [Chroma](https://www.trychroma.com/) - Open-source vector database
+- [OpenAI GPT-3.5](https://platform.openai.com/docs/models/gpt-3-5) - Large language model for answering questions
+- [python-dotenv](https://pypi.org/project/python-dotenv/) - Secure API key management
 
 ---
 
@@ -38,7 +40,7 @@ git clone https://github.com/masinde70/Speech-To-Text-Gen-AI.git
 cd Speech-To-Text-Gen-AI
 ```
 
-### 2. Install Requirements
+### 2. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -47,6 +49,7 @@ pip install -r requirements.txt
 ### 3. Set Up Environment Variables
 
 Create a `.env` file in the project root with your API keys:
+
 ```
 OPENAI_API_KEY=your_openai_api_key
 ASSEMBLYAI_API_KEY=your_assemblyai_api_key
@@ -65,7 +68,7 @@ python main.py
 
 ---
 
-## Example
+## Example Usage
 
 ```bash
 $ python main.py
@@ -82,18 +85,17 @@ SOURCES:
     Source 0:
         Filepath: https://storage.googleapis.com/aai-web-samples/langchain_agents_webinar.opus
         Contents: [Relevant transcript chunk...]
-
-    ...
-
+...
+```
 
 ---
 
 ## Customization
 
 - **Audio Files:**  
-  To process your own audio, modify the `URLs` list in `main.py` with direct links to your audio files (supported formats by AssemblyAI).
+  To process your own audio, modify the `URLs` list in `main.py` with direct links to your audio files (see supported formats by AssemblyAI).
 - **Model Settings:**  
-  You can adjust model names and parameters in the script (e.g., use a different embedding model or temperature).
+  Adjust model names and parameters in the script (e.g., change the embedding model or temperature) as needed.
 
 ---
 
@@ -115,6 +117,5 @@ This project is open source under the [MIT License](LICENSE).
 
 - Inspired by the LangChain and Chroma open-source communities.
 
-```
+---
 
-Feel free to copy, edit, and replace your current README.md with this improved version! If you'd like any additional sections or have special requirements, let me know.
