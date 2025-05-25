@@ -1,9 +1,7 @@
 
-
-```python
-import logging
-from typing import List
 from dotenv import load_dotenv
+from loguru import logger
+from typing import List
 from pydantic import BaseModel, HttpUrl, ValidationError
 from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
@@ -12,21 +10,11 @@ from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
 
-# ---------------- Logging Setup -----------------
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s"
-)
-logger = logging.getLogger(__name__)
-
-# ---------------- Pydantic Model -----------------
 class URLListModel(BaseModel):
     urls: List[HttpUrl]
 
-# ---------------- Load .env -----------------
 load_dotenv()
 
-# ---------------- URLs Validation -----------------
 try:
     url_list_model = URLListModel(urls=[
         "https://storage.googleapis.com/aai-web-samples/langchain_agents_webinar.opus",
@@ -35,10 +23,9 @@ try:
     ])
     URLs = url_list_model.urls
 except ValidationError as e:
-    logger.error(f"Invalid URLs provided: {e}")
+    logger.error(f"Invalid URLs: {e}")
     exit(1)
 
-# ---------------- Functions -----------------
 def create_docs(urls_list: List[str]):
     docs = []
     for url in urls_list:
@@ -64,7 +51,6 @@ def make_qa_chain(db):
         return_source_documents=True
     )
 
-# ---------------- Main Logic -----------------
 if __name__ == "__main__":
     logger.info('Transcribing files ... (may take several minutes)')
     docs = create_docs(URLs)
@@ -73,7 +59,6 @@ if __name__ == "__main__":
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
     texts = text_splitter.split_documents(docs)
 
-    # modify metadata because some AssemblyAI returned metadata is not in a compatible form for the Chroma db
     for text in texts:
         text.metadata = {"audio_url": text.metadata["audio_url"]}
 
@@ -81,7 +66,7 @@ if __name__ == "__main__":
     hf = make_embedder()
     db = Chroma.from_documents(texts, hf)
 
-    logger.info('Ready for questions. Enter `e` to exit.')
+    logger.success('Ready for questions. Enter `e` to exit.')
     qa_chain = make_qa_chain(db)
     while True:
         q = input('Enter your question: ')
@@ -97,5 +82,9 @@ if __name__ == "__main__":
             print(f"        Filepath: {elt.metadata['audio_url']}")
             print(f"        Contents: {elt.page_content}")
         print('\n')
-```
 
+
+**To use loguru, just install it:**
+```bash
+pip install loguru
+```
