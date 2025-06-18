@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: speech-to-text-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stt
+  template:
+    metadata:
+      labels:
+        app: stt
+    spec:
+      containers:
+      - name: stt
+        image: masinde70/speech-to-text:latest  # Replace with your Docker image
+        ports:
+        - containerPort: 8000
