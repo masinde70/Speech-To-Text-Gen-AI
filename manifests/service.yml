@@ -4,9 +4,8 @@ metadata:
   name: speech-to-text-service
 spec:
   selector:
-    app: stt
+    app: speech-to-text
   ports:
-    - protocol: TCP
-      port: 80
+    - port: 80
       targetPort: 8000
   type: ClusterIP
